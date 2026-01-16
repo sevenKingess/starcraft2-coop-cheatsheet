@@ -64,7 +64,7 @@ class BaseSequentialStateMachine(QStateMachine):
 
     def _get_tasktime_timer(self, event):
         if event.get("time_closure")() is None:
-            self.tasktime_timer = lambda: None
+            self.tasktime_timer = lambda: TimeFormatter(0)
         else:
             self.tasktime_timer = lambda: TimeFormatter(event.get("time_closure")())
 
